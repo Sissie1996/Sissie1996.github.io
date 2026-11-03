@@ -34,7 +34,10 @@
       });
     }
     figureDialog.querySelector('#paper-figure-title').textContent = paper.title;
+    figureDialog.style.setProperty('--figure-aspect', String(figure.width / figure.height));
+    figureDialog.style.removeProperty('--figure-native-width');
     const image = figureDialog.querySelector('img');
+    image.onload = () => figureDialog.style.setProperty('--figure-native-width', `${image.naturalWidth}px`);
     image.src = figure.full;
     image.alt = figure.caption;
     figureDialog.querySelector('.figure-dialog-caption').textContent = `Figure ${figure.number}. ${figure.caption}`;
@@ -54,8 +57,9 @@
       const authors = escape(p.authors.replace(/\*/g, '')).replace(/Xiaoxi Du|杜晓茜/g, '<strong>$&</strong>');
       const title = verifiedLinks[p.id] ? `<a href="${verifiedLinks[p.id]}" target="_blank" rel="noopener noreferrer">${escape(p.title)} <span aria-hidden="true">↗</span></a>` : escape(p.title);
       const figure = figures[p.id];
+      const figureLayout = figure ? ` style="--figure-aspect:${figure.width / figure.height}"` : '';
       const illustration = figure ? `<figure class="publication-figure"><button type="button" class="publication-figure-button" data-paper-figure="${p.id}" aria-label="Enlarge Figure ${figure.number}: ${escape(p.title)}"><img src="${escape(figure.thumbnail)}" width="${figure.width}" height="${figure.height}" alt="${escape(figure.caption)}" loading="lazy" decoding="async"><span class="figure-expand" aria-hidden="true">↗</span></button><figcaption>FIG. ${figure.number} <span aria-hidden="true">/</span> <a href="${escape(figure.source)}" target="_blank" rel="noopener noreferrer">PAPER ↗</a></figcaption></figure>` : '';
-      return `<article class="publication-item"><span class="publication-year">${escape(p.year)}</span><div class="publication-content${figure ? ' with-figure' : ''}">${illustration}<div class="publication-copy"><h3>${title}</h3><p class="publication-authors">${authors}</p><p class="publication-venue">${escape(p.details)}</p></div></div><span class="publication-tag">${p.first ? 'FIRST AUTHOR' : 'COLLABORATION'}</span></article>`;
+      return `<article class="publication-item"><span class="publication-year">${escape(p.year)}</span><div class="publication-content${figure ? ' with-figure' : ''}"${figureLayout}>${illustration}<div class="publication-copy"><h3>${title}</h3><p class="publication-authors">${authors}</p><p class="publication-venue">${escape(p.details)}</p></div></div><span class="publication-tag">${p.first ? 'FIRST AUTHOR' : 'COLLABORATION'}</span></article>`;
     }).join('');
     const count = document.getElementById('publication-count');
     if (count) count.textContent = `${visible.length} PAPERS`;
