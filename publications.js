@@ -11,7 +11,7 @@ window.PUBLICATIONS = [
   },
   {
     "id": 1,
-    "authors": "Xiaoxi Du, Lesong Jia, Jinchun Wu, Ningyue Peng, Xiaozhou Zhou, Chengqi Xue",
+    "authors": "Xiaoxi Du, Lesong Jia, Jinchun Wu, Ningyue Peng, Xiaozhou Zhou, Chengqi Xue*",
     "title": "How bare-hand clicking influences eye movement behavior in virtual button selection tasks: a comparative analysis with keyboard control",
     "details": "Journal on Multimodal User Interfaces, 2025, 19(3): 285–304.",
     "summary": "This study compares how people look at virtual buttons when selecting them with a bare hand or a keyboard. Both the input method and the way the interface guided attention affected fixations, saccades, and blinks, suggesting that gaze behavior depends on how users act as well as what they see.",
@@ -21,7 +21,7 @@ window.PUBLICATIONS = [
   },
   {
     "id": 2,
-    "authors": "Xiaoxi Du, Jinchun Wu, Xinyi Tang, Xiaolei Lv, Lesong Jia, Chengqi Xue",
+    "authors": "Xiaoxi Du, Jinchun Wu, Xinyi Tang, Xiaolei Lv, Lesong Jia*, Chengqi Xue*",
     "title": "Predicting User Attention States from Multimodal Eye–Hand Data in VR Selection Tasks",
     "details": "Electronics, 2025, 14(10): 2052.",
     "summary": "Can a VR interface tell whether a user's attention is guided by a goal or captured by a visual cue? This study combines gaze, hand movement, and pupil data to distinguish the two states during button selection, providing a basis for feedback that adapts to how users direct their attention.",
@@ -31,7 +31,7 @@ window.PUBLICATIONS = [
   },
   {
     "id": 3,
-    "authors": "Xiaoxi Du, Menglian Yu, Zichen Zhang, Mu Tong, Yanfei Zhu, Chengqi Xue",
+    "authors": "Xiaoxi Du, Menglian Yu, Zichen Zhang, Mu Tong, Yanfei Zhu, Chengqi Xue*",
     "title": "A Task- and Role-Oriented Design Method for Multi-User Collaborative Interfaces",
     "details": "Sensors, 2025, 25(6): 1760.",
     "summary": "This paper presents a design method for interfaces used by people working together. It starts by mapping what collaborators do and how their roles relate, then carries those observations into requirements, interface design, and evaluation.",
@@ -41,7 +41,7 @@ window.PUBLICATIONS = [
   },
   {
     "id": 4,
-    "authors": "Xiaoxi Du, Chengqi Xue",
+    "authors": "Xiaoxi Du, Chengqi Xue*",
     "title": "Trackable and Personalized Shortcut Menu Supporting Multi-user Collaboration",
     "details": "In: Human-Computer Interaction: Technological Innovation, HCII 2022, Lecture Notes in Computer Science (LNCS), Vol. 13303. Springer, Cham, 2022: 28–41.",
     "summary": "This prototype gives each collaborator a personal shortcut menu on a shared touchscreen. Motion tracking follows each user's hand, so they can call up their own set of tools wherever they are working on the display.",
@@ -51,7 +51,7 @@ window.PUBLICATIONS = [
   },
   {
     "id": 5,
-    "authors": "Xiaoxi Du, Chengqi Xue",
+    "authors": "Xiaoxi Du, Chengqi Xue*",
     "title": "Speech + Posture: A Method for Interaction with Multiple and Large Interactive Displays",
     "details": "In: Intelligent Human Systems Integration (IHSI 2022): Integrating People and Intelligent Systems, AHFE International, Vol. 22, 2022.",
     "summary": "This interaction technique lets users point to a region of a large display and use spoken keywords to identify the content. The two inputs work together to address items across multiple screens or beyond arm's reach.",
@@ -61,7 +61,7 @@ window.PUBLICATIONS = [
   },
   {
     "id": 6,
-    "authors": "Jinchun Wu, Xiaoxi Du, Chengqi Xue",
+    "authors": "Jinchun Wu, Xiaoxi Du, Chengqi Xue*",
     "title": "How the Degree of Anthropomorphism of Human-like Robots Affects Users’ Perceptual and Emotional Processing: Evidence from an EEG Study",
     "details": "Sensors, 2024, 24(15): 4809.",
     "year": "2024",
@@ -70,7 +70,7 @@ window.PUBLICATIONS = [
   },
   {
     "id": 7,
-    "authors": "Jinchun Wu, Xiaoxi Du, Chengqi Xue",
+    "authors": "Jinchun Wu, Xiaoxi Du, Chengqi Xue*",
     "title": "Neural mechanisms behind semantic congruity of construction safety signs: An EEG investigation on construction workers",
     "details": "Human Factors and Ergonomics in Manufacturing & Service Industries, 2023, 33(3): 229–245.",
     "year": "2023",
@@ -79,7 +79,7 @@ window.PUBLICATIONS = [
   },
   {
     "id": 8,
-    "authors": "Xinhao Guo, Xiaoxi Du, Chengqi Xue",
+    "authors": "Xinhao Guo, Xiaoxi Du, Chengqi Xue*",
     "title": "Optimizing Information Seeking for Multi-person Collaboration: Evaluating the Influence of Various Zoom Centers and Interaction Modals",
     "details": "In: Design, User Experience, and Usability, HCII 2024, Lecture Notes in Computer Science (LNCS), Vol. 14712. Springer, Cham, 2024: 232–247.",
     "year": "2024",
@@ -88,7 +88,7 @@ window.PUBLICATIONS = [
   },
   {
     "id": 9,
-    "authors": "Jialing Chen, Xiaoxi Du, Chengqi Xue",
+    "authors": "Jialing Chen, Xiaoxi Du, Chengqi Xue*",
     "title": "Optimization of Display Content Switching Under Multiple Large-Screen Displays: A Multi-channel Interaction Usability Evaluation",
     "details": "In: Design, User Experience, and Usability, HCII 2024, Lecture Notes in Computer Science (LNCS), Vol. 14712. Springer, Cham, 2024: 217–231.",
     "year": "2024",
@@ -152,7 +152,7 @@ window.PUBLICATIONS = [
   },
   {
     "id": 16,
-    "authors": "Xiaozhou Zhou, Fei Teng, Xiaoxi Du, Jiarui Li, Minxin Jin, Chengqi Xue",
+    "authors": "Xiaozhou Zhou*, Fei Teng, Xiaoxi Du, Jiarui Li, Minxin Jin, Chengqi Xue",
     "title": "H-GOMS: a model for evaluating a virtual-hand interaction system in virtual environments",
     "details": "Virtual Reality, 2023, 27(2): 497–522.",
     "summary": "H-GOMS breaks virtual-hand tasks down into measurable actions to evaluate interaction performance. A Unity tool applies the model to log and visualize those actions as they occur.",
@@ -180,7 +180,7 @@ window.PUBLICATIONS = [
   },
   {
     "id": 19,
-    "authors": "Wenzhe Tang, Shanguang Chen, Junkai Shao, Xiaoxi Du, Chengqi Xue",
+    "authors": "Wenzhe Tang, Shanguang Chen, Junkai Shao, Xiaoxi Du, Chengqi Xue*",
     "title": "Emerging Themes and Future Directions in Neurodesign and Human-Computer Interaction: A Systematic Review",
     "details": "International Journal of Human–Computer Interaction, 2025, 41(2): 1652–1673.",
     "year": "2025",
@@ -216,7 +216,7 @@ window.PUBLICATIONS = [
   },
   {
     "id": 23,
-    "authors": "Yanfei Zhu, Jie Gu, Yun Lin, Mo Chen, Qi Guo, Xiaoxi Du, Chengqi Xue",
+    "authors": "Yanfei Zhu, Jie Gu, Yun Lin, Mo Chen, Qi Guo, Xiaoxi Du, Chengqi Xue*",
     "title": "Field Cognitive Styles on Visual Cognition in the Event Structure Design of Bivariate Interactive Dorling Cartogram—The Similarities and Differences of Field-Independent and Field-Dependent Users",
     "details": "ISPRS International Journal of Geo-Information, 2022, 11(11): 574.",
     "year": "2022",

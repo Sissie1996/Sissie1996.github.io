@@ -76,13 +76,15 @@
     const showDetails = filter !== 'all';
     const visible = papers.filter(p => filter === 'selected' ? p.selected : filter === 'first' ? p.first : true).sort((a, b) => Number(b.year) - Number(a.year) || a.id - b.id);
     list.innerHTML = visible.map(p => {
-      const authors = escape(p.authors.replace(/\*/g, '')).replace(/Xiaoxi Du|杜晓茜/g, '<strong>$&</strong>');
+      const authors = escape(p.authors)
+        .replace(/Xiaoxi Du|杜晓茜/g, '<strong>$&</strong>')
+        .replace(/\*/g, compact ? '<sup class="publication-corresponding"><abbr title="Corresponding author">*</abbr></sup>' : '');
       const paperUrl = verifiedLinks[p.id];
       const title = paperUrl ? `<a href="${escape(paperUrl)}" target="_blank" rel="noopener noreferrer">${escape(p.title)} <span aria-hidden="true">↗</span></a>` : escape(p.title);
       if (compact) {
         const reference = referenceLinks[p.id];
         const referenceLink = reference ? `<a class="publication-reference" href="${escape(reference.url)}" target="_blank" rel="noopener noreferrer" aria-label="${escape(reference.label)} for ${escape(p.title)}">${escape(reference.label)} <span aria-hidden="true">↗</span></a>` : '';
-        return `<article class="publication-item publication-item-compact"><h3>${title}</h3><p class="publication-authors">${authors}</p>${referenceLink}</article>`;
+        return `<article class="publication-item publication-item-compact"><time class="publication-year" datetime="${escape(p.year)}">${escape(p.year)}</time><div class="publication-copy"><h3>${title}</h3><p class="publication-authors">${authors}</p>${referenceLink}</div></article>`;
       }
       const figure = showDetails ? figures[p.id] : undefined;
       const summary = showDetails && p.summary ? `<p class="publication-summary">${escape(p.summary)}</p>` : '';
@@ -92,6 +94,8 @@
     }).join('');
     const count = document.getElementById('publication-count');
     if (count) count.textContent = `${visible.length} PAPERS`;
+    const correspondingNote = document.getElementById('publication-corresponding-note');
+    if (correspondingNote) correspondingNote.hidden = !compact;
   }
   document.querySelectorAll('[data-filter]').forEach(button => button.addEventListener('click', () => {
     document.querySelectorAll('[data-filter]').forEach(other => {

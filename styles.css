@@ -6,9 +6,10 @@
 @media print{.publication-content.with-figure{display:block}.publication-figure,.paper-figure-dialog{display:none}}
 
 .publication-summary{max-width:65ch;margin:12px 0 0;font-size:13px;line-height:1.65;color:var(--ink)}
-.publication-item.publication-item-compact{display:block;padding:17px 0}
+.publication-item.publication-item-compact{grid-template-columns:max-content minmax(0,1fr);padding:17px 0}
 .publication-item-compact h3{margin-bottom:4px}
 .publication-item-compact .publication-authors{margin-bottom:0}
+.publication-corresponding{margin-left:1px;color:var(--green);font-weight:700}
 .publication-reference{display:inline-block;margin-top:6px;font-size:11px;color:var(--green);text-decoration:underline;text-underline-offset:3px}
 @media(max-width:360px){.hero .hero-copy h1{font-size:48px}.hero .hero-grid{grid-template-columns:minmax(0,1fr)}}
 /* The CV shares the same type and visual language and also works on paper. */
