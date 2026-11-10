@@ -111,49 +111,144 @@
 
   const stage = document.getElementById('intent-stage');
   if (!stage) return;
+  const svg = document.getElementById('intent-svg');
   const target = document.getElementById('intent-target');
   const gaze = document.getElementById('gaze-line');
-  const hand = document.getElementById('hand-line');
+  const handLine = document.getElementById('hand-line');
+  const handFigure = document.getElementById('hand-figure');
   const pupil = document.getElementById('pupil');
   const label = document.getElementById('target-label');
   const coordinate = document.getElementById('coordinate');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const fingertip = {x: 264, y: 252};
+  const wrist = {x: 175, y: 397};
+  const fingerHeading = Math.atan2(-48, 57);
+  const restPose = {x: 0, y: 0, angle: 0};
+  const handBounds = handFigure.getBBox();
+  const handCorners = [
+    [handBounds.x, handBounds.y],
+    [handBounds.x + handBounds.width, handBounds.y],
+    [handBounds.x, handBounds.y + handBounds.height],
+    [handBounds.x + handBounds.width, handBounds.y + handBounds.height]
+  ];
+  const clamp = (value, minimum, maximum) => Math.max(minimum, Math.min(maximum, value));
+  const angleDifference = (from, to) => Math.atan2(Math.sin(to - from), Math.cos(to - from));
   let current = {x: 358, y: 222};
   let destination = {...current};
+  let handPose = {...restPose};
+  let interacting = false;
+  let lastInputTime = 0;
+  let lastFrameTime = 0;
   let frame = 0;
+
+  // Fit the rotated hand within the drawing, including while it turns or retracts.
+  function fitHand(pose) {
+    const cosine = Math.cos(pose.angle);
+    const sine = Math.sin(pose.angle);
+    const corners = handCorners.map(([x, y]) => ({
+      x: fingertip.x + (x - fingertip.x) * cosine - (y - fingertip.y) * sine,
+      y: fingertip.y + (x - fingertip.x) * sine + (y - fingertip.y) * cosine
+    }));
+    return {
+      x: clamp(pose.x, 20 - Math.min(...corners.map(point => point.x)), 500 - Math.max(...corners.map(point => point.x))),
+      y: clamp(pose.y, 20 - Math.min(...corners.map(point => point.y)), 466 - Math.max(...corners.map(point => point.y))),
+      angle: pose.angle
+    };
+  }
+
+  function reachPose() {
+    const direction = Math.atan2(destination.y - wrist.y, destination.x - wrist.x);
+    return fitHand({
+      x: destination.x - Math.cos(direction) * 44 - fingertip.x,
+      y: destination.y - Math.sin(direction) * 44 - fingertip.y,
+      angle: direction - fingerHeading
+    });
+  }
+
   function draw() {
     target.setAttribute('transform', `translate(${current.x.toFixed(2)} ${current.y.toFixed(2)})`);
-    gaze.setAttribute('d', `M248 161L${current.x} ${current.y}`);
-    hand.setAttribute('d', `M225 287Q${(225 + current.x) / 2} ${current.y - 48} ${current.x} ${current.y}`);
     const angle = Math.atan2(current.y - 155, current.x - 227);
+    gaze.setAttribute('d', `M${227 + Math.cos(angle) * 17} ${155 + Math.sin(angle) * 17}L${current.x} ${current.y}`);
     pupil.setAttribute('cx', (227 + Math.cos(angle) * 6).toFixed(2));
     pupil.setAttribute('cy', (155 + Math.sin(angle) * 6).toFixed(2));
-    label.setAttribute('x', Math.min(445, current.x - 12));
+    handFigure.setAttribute('transform', `translate(${handPose.x.toFixed(2)} ${handPose.y.toFixed(2)}) rotate(${(handPose.angle * 180 / Math.PI).toFixed(2)} ${fingertip.x} ${fingertip.y})`);
+    const tipX = fingertip.x + handPose.x;
+    const tipY = fingertip.y + handPose.y;
+    const deltaX = current.x - tipX;
+    const deltaY = current.y - tipY;
+    const distance = Math.hypot(deltaX, deltaY);
+    const bend = Math.min(28, distance * .18) / Math.max(1, distance);
+    handLine.setAttribute('d', `M${tipX} ${tipY}Q${(tipX + current.x) / 2 + deltaY * bend} ${(tipY + current.y) / 2 - deltaX * bend} ${current.x} ${current.y}`);
+    label.setAttribute('x', current.x);
     label.setAttribute('y', Math.min(448, current.y + 57));
     coordinate.textContent = `x ${(current.x / 520).toFixed(2)} / y ${(current.y / 490).toFixed(2)}`;
   }
-  function animate() {
+
+  function animate(time) {
     frame = 0;
-    current.x += (destination.x - current.x) * .14;
-    current.y += (destination.y - current.y) * .14;
+    const elapsed = Math.min(50, time - lastFrameTime);
+    lastFrameTime = time;
+    const waiting = interacting && time - lastInputTime < 250;
+    const goal = interacting && !waiting ? reachPose() : restPose;
+    const targetEase = 1 - Math.exp(-elapsed / 70);
+    const handEase = 1 - Math.exp(-elapsed / 150);
+    current.x += (destination.x - current.x) * targetEase;
+    current.y += (destination.y - current.y) * targetEase;
+    handPose = fitHand({
+      x: handPose.x + (goal.x - handPose.x) * handEase,
+      y: handPose.y + (goal.y - handPose.y) * handEase,
+      angle: handPose.angle + angleDifference(handPose.angle, goal.angle) * handEase
+    });
+    const targetError = Math.hypot(destination.x - current.x, destination.y - current.y);
+    const handError = Math.hypot(goal.x - handPose.x, goal.y - handPose.y);
+    const rotationError = Math.abs(angleDifference(handPose.angle, goal.angle));
+    const moving = targetError > .05 || handError > .05 || rotationError > .0005;
+    if (!waiting && !moving) {
+      current = {...destination};
+      handPose = {...goal};
+    }
     draw();
-    if (Math.abs(destination.x - current.x) + Math.abs(destination.y - current.y) > .2) frame = requestAnimationFrame(animate);
+    if (waiting || moving) frame = requestAnimationFrame(animate);
   }
-  function move(x, y) {
-    destination = {x: Math.max(60, Math.min(460, x)), y: Math.max(65, Math.min(405, y))};
+
+  function startAnimation() {
     if (reducedMotion.matches) {
-      if (frame) cancelAnimationFrame(frame);
+      cancelAnimationFrame(frame);
       frame = 0;
       current = {...destination};
+      handPose = {...restPose};
       draw();
-    } else if (!frame) frame = requestAnimationFrame(animate);
+    } else if (!frame) {
+      lastFrameTime = performance.now();
+      frame = requestAnimationFrame(animate);
+    }
   }
+
+  function move(x, y) {
+    destination = {x: clamp(x, 60, 460), y: clamp(y, 65, 405)};
+    interacting = true;
+    lastInputTime = performance.now();
+    startAnimation();
+  }
+
+  function relaxHand() {
+    interacting = false;
+    startAnimation();
+  }
+
   function fromPointer(event) {
-    const rect = document.getElementById('intent-svg').getBoundingClientRect();
+    if (!event.isPrimary) return;
+    const rect = svg.getBoundingClientRect();
     move((event.clientX - rect.left) / rect.width * 520, (event.clientY - rect.top) / rect.height * 490);
   }
-  stage.addEventListener('pointermove', event => {if (event.pointerType !== 'touch') fromPointer(event);});
-  stage.addEventListener('pointerdown', fromPointer);
+
+  svg.addEventListener('pointermove', event => {if (event.pointerType !== 'touch') fromPointer(event);});
+  svg.addEventListener('pointerdown', fromPointer);
+  svg.addEventListener('pointerleave', event => {if (event.pointerType !== 'touch') relaxHand();});
+  svg.addEventListener('pointercancel', relaxHand);
+  stage.addEventListener('blur', relaxHand);
+  reducedMotion.addEventListener('change', startAnimation);
+  document.addEventListener('visibilitychange', () => {if (document.hidden) relaxHand();});
   stage.addEventListener('keydown', event => {
     const directions = {ArrowLeft: [-18, 0], ArrowRight: [18, 0], ArrowUp: [0, -18], ArrowDown: [0, 18]};
     if (!directions[event.key]) return;
@@ -161,4 +256,5 @@
     const [dx, dy] = directions[event.key];
     move(destination.x + dx, destination.y + dy);
   });
+  draw();
 })();

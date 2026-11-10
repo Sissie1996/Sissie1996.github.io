@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="./styles.css?v=publication-views-2">
   <script src="./publications.js?v=publication-views-2" defer></script>
   <script src="./figures.js" defer></script>
-  <script src="./app.js?v=publication-views-2" defer></script>
+  <script src="./app.js?v=perception-action-1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -31,8 +31,8 @@
           <div class="hero-links"><a class="button" href="#research">Explore my research <span aria-hidden="true">↘</span></a><a class="text-link" href="./cv.html">View CV <span aria-hidden="true">↗</span></a></div>
         </div>
         <div class="interaction-panel">
-          <div class="figure-top"><span>01 / INTENT IN MOTION</span><span class="live-label"><span></span> INTERACTIVE</span></div>
-          <div class="intent-stage" id="intent-stage" role="group" aria-label="Conceptual eye–hand interaction illustration. Move your pointer, tap, or use arrow keys while focused." tabindex="0">
+          <div class="figure-top"><span>THE PERCEPTION–ACTION LOOP</span><span class="live-label"><span></span> INTERACTIVE</span></div>
+          <div class="intent-stage" id="intent-stage" role="group" aria-label="Perception–action loop. Move your pointer, tap, or use arrow keys to position the target. Pause to let the hand approach." tabindex="0">
             <svg viewBox="0 0 520 490" fill="none" aria-hidden="true" id="intent-svg">
               <defs><pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".8" fill="currentColor" opacity=".15"/></pattern><radialGradient id="glow"><stop stop-color="#91ac79" stop-opacity=".16"/><stop offset="1" stop-color="#91ac79" stop-opacity="0"/></radialGradient></defs>
               <rect width="520" height="490" fill="url(#dots)"/>
@@ -40,20 +40,22 @@
               <circle cx="266" cy="238" r="156" stroke="currentColor" stroke-opacity=".12"/>
               <circle cx="266" cy="238" r="114" stroke="currentColor" stroke-opacity=".08" stroke-dasharray="3 7"/>
               <path d="M65 238H466M266 36V441" stroke="currentColor" stroke-opacity=".1" stroke-dasharray="3 7"/>
-              <path d="M92 333C101 275 173 347 191 278S259 188 289 228S350 230 386 159" stroke="#a0ab96" stroke-width="1.5" stroke-dasharray="3 5"/>
-              <path d="M130 351C143 314 148 312 164 323C166 281 168 259 182 262C195 265 185 297 192 310C193 258 196 237 208 240C221 245 209 289 216 305C220 270 226 261 235 266C245 273 231 304 237 322C256 301 264 299 271 307C280 323 252 338 245 361C236 389 196 405 167 389C148 380 129 367 130 351Z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/>
+              <g id="hand-figure" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M145 390 C148 374 144 363 138 353 C132 345 127 336 129 327 C131 319 137 317 143 320 C141 313 142 306 149 303 C155 300 161 302 166 307 C164 297 168 288 176 286 C183 284 191 290 196 294 C208 284 220 275 231 265 L247 252 C253 247 259 247 263 251 C268 255 268 260 263 265 L247 279 C236 289 225 299 219 309 C215 315 212 322 214 327 C225 329 233 324 242 320 C251 316 259 320 260 326 C262 332 258 338 249 343 L229 356 C217 364 213 375 206 386 C199 395 191 401 184 407 C166 406 153 399 145 390 Z" stroke-width="1.4"/>
+                <path d="M196 294 C203 301 210 311 209 319 C208 326 201 330 195 326 C189 322 184 314 180 308 M166 307 C175 316 181 326 185 334 C189 342 185 349 178 347 C171 346 163 336 158 330 M143 320 C151 328 156 337 161 344 C166 351 161 357 155 355 C148 353 141 346 136 338 M214 327 Q205 333 202 344" stroke-width=".95" stroke-opacity=".56"/>
+              </g>
               <path d="M177 155C204 120 249 120 276 155C249 190 204 190 177 155Z" stroke="currentColor" stroke-width="1.4"/>
               <circle cx="227" cy="155" r="17" stroke="currentColor" stroke-width="1.4"/>
               <circle id="pupil" cx="227" cy="155" r="6" fill="currentColor"/>
               <path id="gaze-line" d="M248 161L358 222" stroke="#607b53" stroke-width="1" stroke-dasharray="4 5"/>
-              <path id="hand-line" d="M225 287Q280 223 358 222" stroke="#607b53" stroke-width="1.5"/>
+              <path id="hand-line" d="M264 252Q308 216 358 222" stroke="#607b53" stroke-width="1.5"/>
               <g id="intent-target" transform="translate(358 222)"><circle r="31" stroke="#607b53" stroke-opacity=".3"/><circle r="19" stroke="#607b53"/><circle r="5" fill="#607b53"/><path d="M-38 0H-26M26 0H38M0-38V-26M0 26V38" stroke="#607b53"/></g>
-              <text x="160" y="107" class="diagram-label">PERCEPTION</text><text x="120" y="423" class="diagram-label">ACTION</text><text id="target-label" x="349" y="280" class="diagram-label accent-label">INTENT</text>
+              <text x="160" y="107" class="diagram-label">PERCEPTION</text><text x="120" y="423" class="diagram-label">ACTION</text><text id="target-label" x="358" y="280" text-anchor="middle" class="diagram-label accent-label">TARGET</text>
               <path d="M50 52H66M58 44V60M450 430H466M458 422V438" stroke="currentColor" stroke-opacity=".4"/>
             </svg>
             <div class="stage-coordinate" aria-hidden="true"><span id="coordinate">x .69 / y .45</span><span>HUMAN ↔ SYSTEM</span></div>
           </div>
-          <p class="figure-caption"><span class="caption-arrow" aria-hidden="true">↖</span> Move, tap, or use arrow keys to explore.<br><span class="caption-muted">A conceptual illustration of eye–hand coordination.</span></p>
+          <p class="figure-caption"><span class="caption-arrow" aria-hidden="true">↖</span> Move, tap, or use arrow keys. Pause to reach.<br><span class="caption-muted">Understanding intent through eye–hand coordination.</span></p>
         </div>
       </div>
       <div class="hero-foot"><span>PhD in Mechanical Engineering · Southeast University</span><a href="#about">A little more about me <span aria-hidden="true">↓</span></a></div>
