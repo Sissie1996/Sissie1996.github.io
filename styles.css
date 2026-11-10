@@ -4,6 +4,12 @@
 @media(max-width:1000px){.publication-content.with-figure{--figure-max-width:210px;--figure-max-height:280px;gap:20px}}
 @media(max-width:700px){.publication-content.with-figure{--figure-max-width:100%;--figure-max-height:360px;grid-template-columns:minmax(0,1fr);gap:18px}.paper-figure-dialog{width:calc(100% - 20px);max-height:94vh;max-height:94dvh}.figure-dialog-content{padding:18px}.paper-figure-dialog h2{font-size:15px}.figure-dialog-image{padding:8px}.figure-dialog-image img{max-height:53vh;max-height:53dvh}.figure-dialog-caption{font-size:11px}.figure-dialog-header .eyebrow{font-size:9px}}
 @media print{.publication-content.with-figure{display:block}.publication-figure,.paper-figure-dialog{display:none}}
+
+.publication-summary{max-width:65ch;margin:12px 0 0;font-size:13px;line-height:1.65;color:var(--ink)}
+.publication-item.publication-item-compact{display:block;padding:17px 0}
+.publication-item-compact h3{margin-bottom:4px}
+.publication-item-compact .publication-authors{margin-bottom:0}
+.publication-reference{display:inline-block;margin-top:6px;font-size:11px;color:var(--green);text-decoration:underline;text-underline-offset:3px}
 @media(max-width:360px){.hero .hero-copy h1{font-size:48px}.hero .hero-grid{grid-template-columns:minmax(0,1fr)}}
 /* The CV shares the same type and visual language and also works on paper. */
 .cv-main{max-width:900px;padding-top:65px;padding-bottom:70px}.cv-title{font-size:64px;letter-spacing:-3px;margin-bottom:12px}.cv-subtitle{color:var(--muted);font-size:15px}.cv-actions{display:flex;gap:24px;align-items:center;margin:27px 0 40px}.cv-actions button{cursor:pointer}.cv-section{border-top:1px solid var(--line);padding-top:25px;margin-top:30px}.cv-section h2{font-size:28px;letter-spacing:-.8px}.cv-section h3{font-size:17px;margin:23px 0 6px}.cv-section p,.cv-section li{font-size:13px;color:var(--muted);line-height:1.8}.cv-section ul{padding-left:19px}.cv-section .publication-item{grid-template-columns:50px 1fr;gap:20px;padding:20px 0}.cv-section .publication-tag{display:none}.cv-section .publication-item h3{font-size:14px;margin:0 0 8px}.cv-section .publication-authors,.cv-section .publication-venue{font-size:10px}

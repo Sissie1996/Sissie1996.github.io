@@ -6,9 +6,29 @@
     1: 'https://doi.org/10.1007/s12193-025-00455-2',
     2: 'https://www.mdpi.com/2079-9292/14/10/2052',
     3: 'https://www.mdpi.com/1424-8220/25/6/1760',
+    4: 'https://doi.org/10.1007/978-3-031-05409-9_3',
     5: 'https://doi.org/10.54941/ahfe100950',
+    6: 'https://doi.org/10.3390/s24154809',
+    7: 'https://doi.org/10.1002/hfm.20979',
+    8: 'https://doi.org/10.1007/978-3-031-61351-7_16',
+    9: 'https://doi.org/10.1007/978-3-031-61351-7_15',
+    12: 'https://doi.org/10.54941/ahfe100948',
+    13: 'https://doi.org/10.1080/00140139.2026.2685314',
+    14: 'https://doi.org/10.1093/iwc/iwaf053',
     15: 'https://doi.org/10.1016/j.aei.2025.103223',
-    16: 'https://doi.org/10.1007/s10055-022-00674-y'
+    16: 'https://doi.org/10.1007/s10055-022-00674-y',
+    17: 'https://doi.org/10.1109/IEEM58616.2023.10406981',
+    18: 'https://doi.org/10.1088/1742-6596/1748/6/062010',
+    19: 'https://doi.org/10.1080/10447318.2024.2362486',
+    20: 'https://doi.org/10.3390/ijerph192114477',
+    21: 'https://doi.org/10.1109/ISCAIT64916.2025.11010651',
+    22: 'https://doi.org/10.1007/978-3-030-80091-8_120',
+    23: 'https://www.mdpi.com/2220-9964/11/11/574'
+  };
+  const referenceLinks = {
+    10: {url: 'https://www.proceedings.com/content/072/072579webtoc.pdf#page=6', label: 'Proceedings index'},
+    11: {url: 'https://www.proceedings.com/content/072/072579webtoc.pdf#page=5', label: 'Proceedings index'},
+    24: {url: 'https://me.seu.edu.cn/2020/1231/c31182a358531/pagem2.htm', label: 'Publication record'}
   };
   const list = document.getElementById('publication-list');
   const papers = window.PUBLICATIONS || [];
@@ -52,14 +72,23 @@
   });
   function renderPublications(filter) {
     if (!list) return;
+    const compact = filter === 'all' && !isCV;
+    const showDetails = filter !== 'all';
     const visible = papers.filter(p => filter === 'selected' ? p.selected : filter === 'first' ? p.first : true).sort((a, b) => Number(b.year) - Number(a.year) || a.id - b.id);
     list.innerHTML = visible.map(p => {
       const authors = escape(p.authors.replace(/\*/g, '')).replace(/Xiaoxi Du|杜晓茜/g, '<strong>$&</strong>');
-      const title = verifiedLinks[p.id] ? `<a href="${verifiedLinks[p.id]}" target="_blank" rel="noopener noreferrer">${escape(p.title)} <span aria-hidden="true">↗</span></a>` : escape(p.title);
-      const figure = figures[p.id];
+      const paperUrl = verifiedLinks[p.id];
+      const title = paperUrl ? `<a href="${escape(paperUrl)}" target="_blank" rel="noopener noreferrer">${escape(p.title)} <span aria-hidden="true">↗</span></a>` : escape(p.title);
+      if (compact) {
+        const reference = referenceLinks[p.id];
+        const referenceLink = reference ? `<a class="publication-reference" href="${escape(reference.url)}" target="_blank" rel="noopener noreferrer" aria-label="${escape(reference.label)} for ${escape(p.title)}">${escape(reference.label)} <span aria-hidden="true">↗</span></a>` : '';
+        return `<article class="publication-item publication-item-compact"><h3>${title}</h3><p class="publication-authors">${authors}</p>${referenceLink}</article>`;
+      }
+      const figure = showDetails ? figures[p.id] : undefined;
+      const summary = showDetails && p.summary ? `<p class="publication-summary">${escape(p.summary)}</p>` : '';
       const figureLayout = figure ? ` style="--figure-aspect:${figure.width / figure.height}"` : '';
       const illustration = figure ? `<figure class="publication-figure"><button type="button" class="publication-figure-button" data-paper-figure="${p.id}" aria-label="Enlarge Figure ${figure.number}: ${escape(p.title)}"><img src="${escape(figure.thumbnail)}" width="${figure.width}" height="${figure.height}" alt="${escape(figure.caption)}" loading="lazy" decoding="async"><span class="figure-expand" aria-hidden="true">↗</span></button><figcaption>FIG. ${figure.number} <span aria-hidden="true">/</span> <a href="${escape(figure.source)}" target="_blank" rel="noopener noreferrer">PAPER ↗</a></figcaption></figure>` : '';
-      return `<article class="publication-item"><span class="publication-year">${escape(p.year)}</span><div class="publication-content${figure ? ' with-figure' : ''}"${figureLayout}>${illustration}<div class="publication-copy"><h3>${title}</h3><p class="publication-authors">${authors}</p><p class="publication-venue">${escape(p.details)}</p></div></div><span class="publication-tag">${p.first ? 'FIRST AUTHOR' : 'COLLABORATION'}</span></article>`;
+      return `<article class="publication-item"><span class="publication-year">${escape(p.year)}</span><div class="publication-content${figure ? ' with-figure' : ''}"${figureLayout}>${illustration}<div class="publication-copy"><h3>${title}</h3><p class="publication-authors">${authors}</p><p class="publication-venue">${escape(p.details)}</p>${summary}</div></div><span class="publication-tag">${p.first ? 'FIRST AUTHOR' : 'COLLABORATION'}</span></article>`;
     }).join('');
     const count = document.getElementById('publication-count');
     if (count) count.textContent = `${visible.length} PAPERS`;

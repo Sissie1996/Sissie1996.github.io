@@ -19,7 +19,7 @@ GitHub Pages documentation: https://docs.github.com/en/pages/getting-started-wit
 
 - `index.html`: homepage copy, research, biography, and contact information.
 - `styles.css`: typography, colors, responsive layout, and print styles.
-- `publications.js`: publication records and selected/first-author flags.
+- `publications.js`: publication records, short summaries, and selected/first-author flags.
 - `figures.js`: the five author-approved paper figures, captions, and source links.
 - `assets/publications/`: lossless WebP thumbnails and full-resolution source images.
 - `FIGURE-CREDITS.md`: figure numbers and publication sources.
@@ -30,6 +30,6 @@ GitHub Pages documentation: https://docs.github.com/en/pages/getting-started-wit
 
 No install or build command is required. Open `index.html` locally to preview. The illustration is conceptual and does not collect gaze or behavior data.
 
-Paper figures can be enlarged with a keyboard-accessible viewer. Source images retain their original composition; only thumbnails are resized. Figures are shown in the homepage publication lists; the printable CV stays text-only. The shortcut-menu paper currently has no approved image.
+Selected and first-author publications show short research summaries and any approved figures. Figures open in a keyboard-accessible viewer and retain their original proportions. All publications uses a compact index of titles, authors, and links. The printable CV uses the full citation list.
 
 Only the website's intended public content is included. The original resume document, local test scripts, and hosting credentials/configuration are excluded.

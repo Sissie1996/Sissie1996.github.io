@@ -4,6 +4,7 @@ window.PUBLICATIONS = [
     "authors": "Xiaoxi Du, Jinchun Wu, Huimei Jing, Wenzhe Tang, Lesong Jia, Xiaozhou Zhou, Chengqi Xue",
     "title": "Attention-driven hand motor control in virtual reality: Kinematic insights into goal- and stimulus-based interface design",
     "details": "International Journal of Industrial Ergonomics, 2026, 115: 104018.",
+    "summary": "How an interface directs attention changes how people reach for virtual buttons. In a VR experiment, goal-based selection led to more undershooting and mid-course corrections. Salient visual cues sped up reaches but made overshooting more common.",
     "year": "2026",
     "first": true,
     "selected": true
@@ -13,6 +14,7 @@ window.PUBLICATIONS = [
     "authors": "Xiaoxi Du, Lesong Jia, Jinchun Wu, Ningyue Peng, Xiaozhou Zhou, Chengqi Xue",
     "title": "How bare-hand clicking influences eye movement behavior in virtual button selection tasks: a comparative analysis with keyboard control",
     "details": "Journal on Multimodal User Interfaces, 2025, 19(3): 285–304.",
+    "summary": "This study compares how people look at virtual buttons when selecting them with a bare hand or a keyboard. Both the input method and the way the interface guided attention affected fixations, saccades, and blinks, suggesting that gaze behavior depends on how users act as well as what they see.",
     "year": "2025",
     "first": true,
     "selected": true
@@ -22,6 +24,7 @@ window.PUBLICATIONS = [
     "authors": "Xiaoxi Du, Jinchun Wu, Xinyi Tang, Xiaolei Lv, Lesong Jia, Chengqi Xue",
     "title": "Predicting User Attention States from Multimodal Eye–Hand Data in VR Selection Tasks",
     "details": "Electronics, 2025, 14(10): 2052.",
+    "summary": "Can a VR interface tell whether a user's attention is guided by a goal or captured by a visual cue? This study combines gaze, hand movement, and pupil data to distinguish the two states during button selection, providing a basis for feedback that adapts to how users direct their attention.",
     "year": "2025",
     "first": true,
     "selected": true
@@ -31,6 +34,7 @@ window.PUBLICATIONS = [
     "authors": "Xiaoxi Du, Menglian Yu, Zichen Zhang, Mu Tong, Yanfei Zhu, Chengqi Xue",
     "title": "A Task- and Role-Oriented Design Method for Multi-User Collaborative Interfaces",
     "details": "Sensors, 2025, 25(6): 1760.",
+    "summary": "This paper presents a design method for interfaces used by people working together. It starts by mapping what collaborators do and how their roles relate, then carries those observations into requirements, interface design, and evaluation.",
     "year": "2025",
     "first": true,
     "selected": true
@@ -40,6 +44,7 @@ window.PUBLICATIONS = [
     "authors": "Xiaoxi Du, Chengqi Xue",
     "title": "Trackable and Personalized Shortcut Menu Supporting Multi-user Collaboration",
     "details": "In: Human-Computer Interaction: Technological Innovation, HCII 2022, Lecture Notes in Computer Science (LNCS), Vol. 13303. Springer, Cham, 2022: 28–41.",
+    "summary": "This prototype gives each collaborator a personal shortcut menu on a shared touchscreen. Motion tracking follows each user's hand, so they can call up their own set of tools wherever they are working on the display.",
     "year": "2022",
     "first": true,
     "selected": false
@@ -49,6 +54,7 @@ window.PUBLICATIONS = [
     "authors": "Xiaoxi Du, Chengqi Xue",
     "title": "Speech + Posture: A Method for Interaction with Multiple and Large Interactive Displays",
     "details": "In: Intelligent Human Systems Integration (IHSI 2022): Integrating People and Intelligent Systems, AHFE International, Vol. 22, 2022.",
+    "summary": "This interaction technique lets users point to a region of a large display and use spoken keywords to identify the content. The two inputs work together to address items across multiple screens or beyond arm's reach.",
     "year": "2022",
     "first": true,
     "selected": false
@@ -139,6 +145,7 @@ window.PUBLICATIONS = [
     "authors": "Jinchun Wu, Yixuan Liu, Xiaoxi Du, Xinyu Zhang, Chengqi Xue",
     "title": "Influence of design interaction modes on conceptual design behavior and inter-brain synchrony in designer teams: A fNIRS hyperscanning study",
     "details": "Advanced Engineering Informatics, 2025, 65: 103223.",
+    "summary": "The study uses behavioral measures and fNIRS hyperscanning to compare how design teams generate concepts under different communication conditions. The conditions produced different patterns of collaboration and neural synchrony, with face-to-face interaction showing the strongest overall performance in the study.",
     "year": "2025",
     "first": false,
     "selected": true
@@ -148,6 +155,7 @@ window.PUBLICATIONS = [
     "authors": "Xiaozhou Zhou, Fei Teng, Xiaoxi Du, Jiarui Li, Minxin Jin, Chengqi Xue",
     "title": "H-GOMS: a model for evaluating a virtual-hand interaction system in virtual environments",
     "details": "Virtual Reality, 2023, 27(2): 497–522.",
+    "summary": "H-GOMS breaks virtual-hand tasks down into measurable actions to evaluate interaction performance. A Unity tool applies the model to log and visualize those actions as they occur.",
     "year": "2023",
     "first": false,
     "selected": true
