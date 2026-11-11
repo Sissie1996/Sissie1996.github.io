@@ -19,8 +19,8 @@ GitHub Pages documentation: https://docs.github.com/en/pages/getting-started-wit
 
 - `index.html`: homepage copy, research, biography, and contact information.
 - `styles.css`: typography, colors, responsive layout, and print styles.
-- `publications.js`: publication records, short summaries, and selected/first-author flags.
-- `figures.js`: the five author-approved paper figures, captions, and source links.
+- `publications.js`: complete publication records, short summaries, and first/corresponding-author flags.
+- `figures.js`: the eight author-approved paper figures, descriptions, and source links.
 - `assets/publications/`: lossless WebP thumbnails and full-resolution source images.
 - `FIGURE-CREDITS.md`: figure numbers and publication sources.
 - `app.js`: publication filters, verified paper URLs, CV printing, and the conceptual interaction diagram.
@@ -30,6 +30,6 @@ GitHub Pages documentation: https://docs.github.com/en/pages/getting-started-wit
 
 No install or build command is required. Open `index.html` locally to preview. The illustration is conceptual and does not collect gaze or behavior data.
 
-Selected and first-author publications show short research summaries and any approved figures. Figures open in a keyboard-accessible viewer and retain their original proportions. All publications uses a compact index of years, titles, authors, and links. In that index, an asterisk after an author’s name identifies a corresponding author. The printable CV uses the full citation list.
+Recent shows the current and previous calendar year (2025–2026 at this update). First / Corresponding Author uses each record’s `first` or `corresponding` flag; these flags describe Xiaoxi Du’s role, not another author’s role. Both views show short summaries and approved images in consistent 3:2 frames, with original proportions preserved. The three records without approved images use full-width text without a placeholder. The keyboard/bare-hand image places its two original panels side by side. Images open in a keyboard-accessible viewer. All Publications shows every record in a compact chronological index with complete author names, years, and links. Author asterisks remain, without an explanatory website footnote. The printable CV uses the same complete author lists and full citations.
 
 Only the website's intended public content is included. The original resume document, local test scripts, and hosting credentials/configuration are excluded.

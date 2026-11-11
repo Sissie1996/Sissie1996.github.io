@@ -34,6 +34,15 @@
   const papers = window.PUBLICATIONS || [];
   const isCV = document.body.dataset.page === 'cv';
   const figures = isCV ? {} : (window.PUBLICATION_FIGURES || {});
+  const currentYear = new Date().getFullYear();
+  const matchesFilter = (paper, filter) => filter === 'recent'
+    ? Number(paper.year) >= currentYear - 1 && Number(paper.year) <= currentYear
+    : filter === 'lead' ? paper.first || paper.corresponding : true;
+  const authorMarkup = paper => escape(paper.authors)
+    .replace(/Xiaoxi Du|杜晓茜/g, '<strong>$&</strong>')
+    .replace(/\*/g, '<sup class="publication-corresponding" aria-label="corresponding author">*</sup>');
+  const publicationLink = paper => verifiedLinks[paper.id]
+    ? {url: verifiedLinks[paper.id], label: 'View paper'} : referenceLinks[paper.id];
   let figureDialog;
   function showFigure(paperId) {
     const figure = figures[paperId];
@@ -60,7 +69,7 @@
     image.onload = () => figureDialog.style.setProperty('--figure-native-width', `${image.naturalWidth}px`);
     image.src = figure.full;
     image.alt = figure.caption;
-    figureDialog.querySelector('.figure-dialog-caption').textContent = `Figure ${figure.number}. ${figure.caption}`;
+    figureDialog.querySelector('.figure-dialog-caption').textContent = figure.caption;
     figureDialog.querySelector('.figure-original').href = figure.full;
     figureDialog.querySelector('.figure-source').href = figure.source;
     figureDialog.showModal();
@@ -73,30 +82,31 @@
   function renderPublications(filter) {
     if (!list) return;
     const compact = filter === 'all' && !isCV;
-    const showDetails = filter !== 'all';
-    const visible = papers.filter(p => filter === 'selected' ? p.selected : filter === 'first' ? p.first : true).sort((a, b) => Number(b.year) - Number(a.year) || a.id - b.id);
+    const visible = papers.filter(p => matchesFilter(p, filter)).sort((a, b) => Number(b.year) - Number(a.year) || a.id - b.id);
     list.innerHTML = visible.map(p => {
-      const authors = escape(p.authors)
-        .replace(/Xiaoxi Du|杜晓茜/g, '<strong>$&</strong>')
-        .replace(/\*/g, compact ? '<sup class="publication-corresponding"><abbr title="Corresponding author">*</abbr></sup>' : '');
-      const paperUrl = verifiedLinks[p.id];
-      const title = paperUrl ? `<a href="${escape(paperUrl)}" target="_blank" rel="noopener noreferrer">${escape(p.title)} <span aria-hidden="true">↗</span></a>` : escape(p.title);
-      if (compact) {
-        const reference = referenceLinks[p.id];
-        const referenceLink = reference ? `<a class="publication-reference" href="${escape(reference.url)}" target="_blank" rel="noopener noreferrer" aria-label="${escape(reference.label)} for ${escape(p.title)}">${escape(reference.label)} <span aria-hidden="true">↗</span></a>` : '';
-        return `<article class="publication-item publication-item-compact"><time class="publication-year" datetime="${escape(p.year)}">${escape(p.year)}</time><div class="publication-copy"><h3>${title}</h3><p class="publication-authors">${authors}</p>${referenceLink}</div></article>`;
+      const authors = authorMarkup(p);
+      const link = publicationLink(p);
+      const title = link ? `<a href="${escape(link.url)}" target="_blank" rel="noopener noreferrer">${escape(p.title)}</a>` : escape(p.title);
+      const paperLink = link ? `<div class="publication-links"><a href="${escape(link.url)}" target="_blank" rel="noopener noreferrer" aria-label="${escape(link.label)}: ${escape(p.title)}">${escape(link.label)} <span aria-hidden="true">↗</span></a></div>` : '';
+      if (isCV) {
+        return `<article class="publication-item"><time class="publication-year" datetime="${escape(p.year)}">${escape(p.year)}</time><div class="publication-content"><h3>${title}</h3><p class="publication-authors">${authors}</p><p class="publication-venue">${escape(p.details)}</p></div></article>`;
       }
-      const figure = showDetails ? figures[p.id] : undefined;
-      const summary = showDetails && p.summary ? `<p class="publication-summary">${escape(p.summary)}</p>` : '';
-      const figureLayout = figure ? ` style="--figure-aspect:${figure.width / figure.height}"` : '';
-      const illustration = figure ? `<figure class="publication-figure"><button type="button" class="publication-figure-button" data-paper-figure="${p.id}" aria-label="Enlarge Figure ${figure.number}: ${escape(p.title)}"><img src="${escape(figure.thumbnail)}" width="${figure.width}" height="${figure.height}" alt="${escape(figure.caption)}" loading="lazy" decoding="async"><span class="figure-expand" aria-hidden="true">↗</span></button><figcaption>FIG. ${figure.number} <span aria-hidden="true">/</span> <a href="${escape(figure.source)}" target="_blank" rel="noopener noreferrer">PAPER ↗</a></figcaption></figure>` : '';
-      return `<article class="publication-item"><span class="publication-year">${escape(p.year)}</span><div class="publication-content${figure ? ' with-figure' : ''}"${figureLayout}>${illustration}<div class="publication-copy"><h3>${title}</h3><p class="publication-authors">${authors}</p><p class="publication-venue">${escape(p.details)}</p>${summary}</div></div><span class="publication-tag">${p.first ? 'FIRST AUTHOR' : 'COLLABORATION'}</span></article>`;
+      if (compact) {
+        return `<article class="publication-item publication-item-compact" data-publication-id="${p.id}"><time class="publication-year" datetime="${escape(p.year)}">${escape(p.year)}</time><div class="publication-copy"><h3>${title}</h3><p class="publication-authors">${authors}</p>${paperLink}</div></article>`;
+      }
+      const figure = figures[p.id];
+      const summary = p.summary ? `<p class="publication-summary">${escape(p.summary)}</p>` : '';
+      const illustration = figure ? `<figure class="publication-figure"><button type="button" class="publication-figure-button" data-paper-figure="${p.id}" aria-label="Enlarge image for ${escape(p.title)}"><img src="${escape(figure.thumbnail)}" width="${figure.width}" height="${figure.height}" alt="${escape(figure.caption)}" loading="lazy" decoding="async"><span class="figure-expand" aria-hidden="true">↗</span></button></figure>` : '';
+      const role = p.first ? 'FIRST AUTHOR' : p.corresponding ? 'CORRESPONDING AUTHOR' : '';
+      const meta = `<div class="publication-meta"><time datetime="${escape(p.year)}">${escape(p.year)}</time><span>${escape(p.shortVenue || p.details)}</span>${role ? `<span>${role}</span>` : ''}</div>`;
+      return `<article class="publication-item publication-card${figure ? '' : ' publication-card-text-only'}" data-publication-id="${p.id}">${illustration}<div class="publication-copy">${meta}<h3>${title}</h3><p class="publication-authors">${authors}</p>${summary}${paperLink}</div></article>`;
     }).join('');
     const count = document.getElementById('publication-count');
-    if (count) count.textContent = `${visible.length} PAPERS`;
-    const correspondingNote = document.getElementById('publication-corresponding-note');
-    if (correspondingNote) correspondingNote.hidden = !compact;
+    if (count) count.textContent = `${filter === 'recent' ? `${currentYear - 1}–${currentYear} · ` : ''}${visible.length} PAPERS`;
   }
+  document.querySelectorAll('[data-filter] span').forEach(span => {
+    span.textContent = papers.filter(p => matchesFilter(p, span.parentElement.dataset.filter)).length;
+  });
   document.querySelectorAll('[data-filter]').forEach(button => button.addEventListener('click', () => {
     document.querySelectorAll('[data-filter]').forEach(other => {
       const active = other === button;
@@ -105,7 +115,7 @@
     });
     renderPublications(button.dataset.filter);
   }));
-  renderPublications(isCV ? 'all' : 'selected');
+  renderPublications(isCV ? 'all' : 'recent');
   const printButton = document.getElementById('print-cv');
   if (printButton) printButton.addEventListener('click', () => window.print());
 
