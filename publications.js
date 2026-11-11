@@ -1,7 +1,7 @@
 window.PUBLICATIONS = [
   {
     "id": 0,
-    "authors": "Xiaoxi Du, Jinchun Wu, Huimei Jing, Wenzhe Tang, Lesong Jia, Xiaozhou Zhou, Chengqi Xue",
+    "authors": "Xiaoxi Du, Jinchun Wu, Huimei Jing, Wenzhe Tang, Lesong Jia, Xiaozhou Zhou*, Chengqi Xue*",
     "title": "Attention-driven hand motor control in virtual reality: Kinematic insights into goal- and stimulus-based interface design",
     "details": "International Journal of Industrial Ergonomics, 2026, 115: 104018.",
     "summary": "How interfaces guide attention changes the way people reach. Goal-based selection led to more undershooting and corrective movements, while salient cues sped up reaches but increased overshooting.",
