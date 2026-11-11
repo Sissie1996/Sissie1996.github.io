@@ -103,7 +103,7 @@ window.PUBLICATIONS = [
   },
   {
     "id": 10,
-    "authors": "Xinyi Ye, Xiaoxi Du, Xian Li, Xinhao Guo, Ruoyan Wang, Chengqi Xue",
+    "authors": "Xinyi Ye, Xiaoxi Du, Xian Li, Xinhao Guo, Ruoyan Wang, Chengqi Xue*",
     "title": "Design of Two-level Radioactive Shortcut Menu for Touch Interaction",
     "details": "In: Proceedings of the 50th International Conference on Computers and Industrial Engineering (CIE 2023): Sustainable Digital Transformation. Sharjah, United Arab Emirates, 2023: 1001–1010.",
     "year": "2023",
@@ -112,7 +112,7 @@ window.PUBLICATIONS = [
   },
   {
     "id": 11,
-    "authors": "Huifang Yin, Xiaoxi Du, Yiyan Wang, Yujie Liu, Xin Chen, Xiaozhou Zhou, Haiyan Wang",
+    "authors": "Huifang Yin, Xiaoxi Du, Yiyan Wang, Yujie Liu, Xin Chen, Xiaozhou Zhou, Haiyan Wang*",
     "title": "The Eye Movement Behavior of Goal-directed Intent and Exploratory Intention in Virtual Shopping",
     "details": "In: Proceedings of the 50th International Conference on Computers and Industrial Engineering (CIE 2023): Sustainable Digital Transformation. Sharjah, United Arab Emirates, 2023: 745–754.",
     "year": "2023",
@@ -121,7 +121,7 @@ window.PUBLICATIONS = [
   },
   {
     "id": 12,
-    "authors": "Huimei Jing, Xiaoxi Du, Xiaozhou Zhou, Chengqi Xue",
+    "authors": "Huimei Jing, Xiaoxi Du, Xiaozhou Zhou, Chengqi Xue*",
     "title": "The Effects of Visual or Auditory Interruption on Task Performance - Combination of Behavior Data and Eye Movement Analysis",
     "details": "In: Intelligent Human Systems Integration (IHSI 2022): Integrating People and Intelligent Systems, AHFE International, Vol. 22, 2022.",
     "year": "2022",
@@ -152,7 +152,7 @@ window.PUBLICATIONS = [
   },
   {
     "id": 15,
-    "authors": "Jinchun Wu, Yixuan Liu, Xiaoxi Du, Xinyu Zhang, Chengqi Xue",
+    "authors": "Jinchun Wu, Yixuan Liu, Xiaoxi Du, Xinyu Zhang, Chengqi Xue*",
     "title": "Influence of design interaction modes on conceptual design behavior and inter-brain synchrony in designer teams: A fNIRS hyperscanning study",
     "details": "Advanced Engineering Informatics, 2025, 65: 103223.",
     "summary": "Behavioral measures and fNIRS hyperscanning examine how face-to-face, remote virtual, and electronic brainstorming settings shape team design processes and inter-brain synchrony.",
@@ -173,7 +173,7 @@ window.PUBLICATIONS = [
   },
   {
     "id": 17,
-    "authors": "Zhi-Lan Ji, Xin-Hao Guo, Xiao-Xi Du, Rong-Sheng Lu, Cheng-Qi Xue",
+    "authors": "Zhi-Lan Ji, Xin-Hao Guo, Xiao-Xi Du, Rong-Sheng Lu, Cheng-Qi Xue*",
     "title": "Exploring Subjective and Objective Performance of Multimodal Interactions in Different Physical Environments",
     "details": "In: 2023 IEEE International Conference on Industrial Engineering and Engineering Management (IEEM). IEEE, 2023: 1098–1102.",
     "year": "2023",
@@ -240,7 +240,7 @@ window.PUBLICATIONS = [
   },
   {
     "id": 24,
-    "authors": "周小舟, 宗承龙, 郭一冰, 贾乐松, 杜晓茜, 薛澄岐",
+    "authors": "周小舟*, 宗承龙, 郭一冰, 贾乐松, 杜晓茜, 薛澄岐",
     "title": "Target Selection Techniques in Multimodal Interaction",
     "details": "Packaging Engineering, 2022, 43(4): 36–44. (In Chinese; title translated)",
     "year": "2022",
