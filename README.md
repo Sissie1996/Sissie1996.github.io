@@ -17,7 +17,10 @@ GitHub Pages documentation: https://docs.github.com/en/pages/getting-started-wit
 
 ## Edit the website
 
-- `index.html`: research homepage, publications, experience overview, and contact information.
+- `index.html`: Research homepage with the perception–action illustration, four research interests, and the existing research approach.
+- `publications.html`: independent Publications page, paper filters, and five patent records. Edit patent titles, inventors, numbers, and historical grant/publication dates directly here.
+- `pages.css`: Research interests, Publications page framing, patent list, and the shared compact footer.
+- `site.js`: footer year and redirects from former homepage section links to the independent pages.
 - `about.html`: personal introduction, interests, education, and opportunities; edit the English text directly here.
 - `about.css`: the About Me layout and four animated illustrations.
 - `about.js`: animation play/pause, reduced-motion preferences, and pausing in background tabs.
@@ -42,3 +45,7 @@ Recent shows the current and previous calendar year (2025–2026 at this update)
 Only the website's intended public content is included. The original resume document, local test scripts, and hosting credentials/configuration are excluded.
 
 Experience uses concise English translations of the approved CV entries. Project descriptions lead each row, with supporting figures capped at 280 pixels wide on desktop and 240 pixels on mobile. White frames keep transparent diagrams readable. P1-overview.svg presents the main sequence; P1-framework.svg translates and reorganizes the supplied figure’s process, input/output factors, intervention strategies, domains, and collaboration contexts. P4-interface.svg displays only the upper interface through a fixed SVG viewport over the supplied image; existing masking remains intact. The image viewer and full-size links use these revised figures. The original supplied PNG files remain unchanged in the repository. Mentoring currently uses text entries and can be extended with representative thesis figures later.
+
+The four main navigation destinations are Research (index.html), Publications (publications.html), Experience (experience.html), and About Me (about.html). Each page has its own URL and active navigation state. Legacy homepage links #publications, #experience, #about, and #contact lead to the appropriate page; #research still scrolls to the Research section.
+
+Patent entries use the grant or application-publication year, not the filing year. “Granted” describes the historical grant event and does not assert current legal status. Four grants were checked against the author's CNIPA certificates. The scooter entry uses the grant publication CN110979535B rather than the earlier A publication. The faucet entry credits both designers shown on the certificate. CN118963574A is listed as a published application. Links are supplied for the three retrievable public records; certificate-only records retain their verified numbers without a speculative external link. Certificate scans are not included in the public site. English patent titles are translations of the Chinese titles.
