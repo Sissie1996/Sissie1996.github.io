@@ -41,4 +41,4 @@ Recent shows the current and previous calendar year (2025–2026 at this update)
 
 Only the website's intended public content is included. The original resume document, local test scripts, and hosting credentials/configuration are excluded.
 
-Experience uses concise English translations of the approved CV entries. The supplied project images retain their original content, proportions, and transparency. White image frames make the transparent diagrams readable; clicking a figure opens the viewer with a link to the original image. Mentoring currently uses text entries and can be extended with representative thesis figures later.
+Experience uses concise English translations of the approved CV entries. The supplied project images retain their original content, proportions, and transparency. White image frames make the transparent diagrams readable; clicking a figure opens the viewer with a link to the original image. The large P4 image has smaller WebP copies for the card and viewer, while its supplied PNG remains available through the full-size link. Mentoring currently uses text entries and can be extended with representative thesis figures later.

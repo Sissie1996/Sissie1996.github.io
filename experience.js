@@ -18,7 +18,7 @@
       caption.textContent = preview.alt;
       image.alt = preview.alt;
       image.src = link.href;
-      original.href = link.href;
+      original.href = link.dataset.original || link.href;
       viewer.showModal();
       document.body.classList.add('xp-viewer-open');
     });
