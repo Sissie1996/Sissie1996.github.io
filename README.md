@@ -17,7 +17,10 @@ GitHub Pages documentation: https://docs.github.com/en/pages/getting-started-wit
 
 ## Edit the website
 
-- `index.html`: homepage copy, research, biography, and contact information.
+- `index.html`: research homepage, publications, experience overview, and contact information.
+- `about.html`: personal introduction, interests, education, and opportunities; edit the English text directly here.
+- `about.css`: the About Me layout and four animated illustrations.
+- `about.js`: animation play/pause, reduced-motion preferences, and pausing in background tabs.
 - `styles.css`: typography, colors, responsive layout, and print styles.
 - `publications.js`: complete publication records, short summaries, and first/corresponding-author flags.
 - `figures.js`: the eight author-approved paper figures, descriptions, and source links.
