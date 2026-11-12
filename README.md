@@ -21,6 +21,10 @@ GitHub Pages documentation: https://docs.github.com/en/pages/getting-started-wit
 - `about.html`: personal introduction, interests, education, and opportunities; edit the English text directly here.
 - `about.css`: the About Me layout and four animated illustrations.
 - `about.js`: animation play/pause, reduced-motion preferences, and pausing in background tabs.
+- `experience.html`: three selected grants, six selected projects, seven mentored students, and academic service. Edit dates, roles, and English descriptions here.
+- `experience.css`: the Experience layout and consistent project image frames.
+- `experience.js`: the keyboard-accessible project image viewer.
+- `assets/projects/`: the original author-supplied P1–P4 images. P6 and P7 are text-only project entries.
 - `styles.css`: typography, colors, responsive layout, and print styles.
 - `publications.js`: complete publication records, short summaries, and first/corresponding-author flags.
 - `figures.js`: the eight author-approved paper figures, descriptions, and source links.
@@ -36,3 +40,5 @@ No install or build command is required. Open `index.html` locally to preview. T
 Recent shows the current and previous calendar year (2025–2026 at this update). First / Corresponding Author uses each record’s `first` or `corresponding` flag; these flags describe Xiaoxi Du’s role, not another author’s role. Both views show short summaries and approved images in consistent 3:2 frames, with original proportions preserved. The three records without approved images use full-width text without a placeholder. The keyboard/bare-hand image places its two original panels side by side. Images open in a keyboard-accessible viewer. All Publications shows every record in a compact chronological index with complete author names, years, and links. Author asterisks remain, without an explanatory website footnote. The printable CV uses the same complete author lists and full citations.
 
 Only the website's intended public content is included. The original resume document, local test scripts, and hosting credentials/configuration are excluded.
+
+Experience uses concise English translations of the approved CV entries. The supplied project images retain their original content, proportions, and transparency. White image frames make the transparent diagrams readable; clicking a figure opens the viewer with a link to the original image. Mentoring currently uses text entries and can be extended with representative thesis figures later.
