@@ -15,8 +15,8 @@
       trigger = link;
       const preview = link.querySelector('img');
       title.textContent = link.closest('article').querySelector('h3').textContent;
-      caption.textContent = preview.alt;
-      image.alt = preview.alt;
+      caption.textContent = link.dataset.caption || preview.alt;
+      image.alt = link.dataset.caption || preview.alt;
       image.src = link.href;
       original.href = link.dataset.original || link.href;
       viewer.showModal();

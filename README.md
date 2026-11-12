@@ -22,9 +22,9 @@ GitHub Pages documentation: https://docs.github.com/en/pages/getting-started-wit
 - `about.css`: the About Me layout and four animated illustrations.
 - `about.js`: animation play/pause, reduced-motion preferences, and pausing in background tabs.
 - `experience.html`: three selected grants, six selected projects, seven mentored students, and academic service. Edit dates, roles, and English descriptions here.
-- `experience.css`: the Experience layout and consistent project image frames.
+- `experience.css`: the Experience layout, text-led project rows, and small supporting figures.
 - `experience.js`: the keyboard-accessible project image viewer.
-- `assets/projects/`: the original author-supplied P1–P4 images. P6 and P7 are text-only project entries.
+- `assets/projects/`: supplied project images and presentation assets. P1 uses an English SVG overview and a detailed vector framework; P4 shows only the upper interface. P6 and P7 are text-only project entries.
 - `styles.css`: typography, colors, responsive layout, and print styles.
 - `publications.js`: complete publication records, short summaries, and first/corresponding-author flags.
 - `figures.js`: the eight author-approved paper figures, descriptions, and source links.
@@ -41,4 +41,4 @@ Recent shows the current and previous calendar year (2025–2026 at this update)
 
 Only the website's intended public content is included. The original resume document, local test scripts, and hosting credentials/configuration are excluded.
 
-Experience uses concise English translations of the approved CV entries. The supplied project images retain their original content, proportions, and transparency. White image frames make the transparent diagrams readable; clicking a figure opens the viewer with a link to the original image. The large P4 image has smaller WebP copies for the card and viewer, while its supplied PNG remains available through the full-size link. Mentoring currently uses text entries and can be extended with representative thesis figures later.
+Experience uses concise English translations of the approved CV entries. Project descriptions lead each row, with supporting figures capped at 280 pixels wide on desktop and 240 pixels on mobile. White frames keep transparent diagrams readable. P1-overview.svg presents the main sequence; P1-framework.svg translates and reorganizes the supplied figure’s process, input/output factors, intervention strategies, domains, and collaboration contexts. P4-interface.svg displays only the upper interface through a fixed SVG viewport over the supplied image; existing masking remains intact. The image viewer and full-size links use these revised figures. The original supplied PNG files remain unchanged in the repository. Mentoring currently uses text entries and can be extended with representative thesis figures later.
