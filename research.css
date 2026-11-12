@@ -1,0 +1,90 @@
+/* Approved composite research illustrations; all motion is brief and visitor-triggered. */
+.research-interests{--interest-graphic-size:84px;--interest-line-weight:1.45}
+.research-interests .research-interest{display:grid;grid-template-columns:var(--interest-graphic-size) minmax(0,1fr);gap:24px;align-content:start}
+.research-interest-copy{min-width:0}
+.research-interests .interest-graphic{cursor:pointer;align-self:start}
+.research-interests .interest-graphic:disabled{cursor:default;opacity:1}
+.research-interests .interest-graphic{position:relative;display:block;box-sizing:border-box;width:var(--interest-graphic-size);height:var(--interest-graphic-size);padding:0;margin:0;background:transparent;border:0;color:var(--green);overflow:visible}
+.research-interests .interest-diagram{position:absolute;inset:0;display:block;font-size:var(--interest-graphic-size)}
+.research-interests .interest-symbol{position:absolute;width:24%;height:24%;display:grid;place-items:center;z-index:2;background:var(--paper)}
+.research-interests .interest-symbol svg{display:block;width:100%;height:100%;stroke-width:var(--interest-line-weight)}
+.research-interests .interest-connector{height:1px;background:var(--green);opacity:.38;position:absolute;transform-origin:0 50%;z-index:0}
+.research-interests .interest-node{position:absolute;width:6%;height:6%;border-radius:50%;background:var(--green);z-index:2}
+.research-interests .interest-signal{position:absolute;width:4%;height:4%;border-radius:50%;background:var(--green);opacity:0;z-index:3}
+.research-interests .interest-source-eye{left:3%;top:4%}
+.research-interests .interest-source-hand{left:3%;top:38%}
+.research-interests .interest-source-audio{left:3%;top:72%}
+.research-interests .interest-merge{left:75%;top:43%;width:14%;height:14%;border:1px solid currentColor;border-radius:50%;box-sizing:border-box}
+.research-interests .interest-merge:after{content:"";position:absolute;inset:32%;border-radius:50%;background:currentColor}
+.research-interests .interest-input-top{left:29%;top:17%;width:63%;transform:rotate(32deg)}
+.research-interests .interest-input-middle{left:29%;top:50%;width:49%}
+.research-interests .interest-input-bottom{left:29%;top:83%;width:63%;transform:rotate(-32deg)}
+.research-interests .interest-signal-top{left:29%;top:15%}
+.research-interests .interest-signal-middle{left:29%;top:48%}
+.research-interests .interest-signal-bottom{left:29%;top:81%}
+.research-interests .interest-attention-eye{left:0;top:37%;width:28%;height:28%}
+.research-interests .interest-target-faint{width:8%;height:8%;border-radius:50%;border:1px solid var(--line);position:absolute;left:68%;background:var(--paper)}
+.research-interests .interest-target-upper{top:8%}
+.research-interests .interest-target-lower{top:79%}
+.research-interests .interest-target-focus{position:absolute;left:64%;top:39%;width:23%;height:23%;border:1px solid var(--green);border-radius:50%;box-sizing:border-box}
+.research-interests .interest-target-focus:after{content:"";position:absolute;inset:36%;background:var(--green);border-radius:50%}
+.research-interests .interest-target-halo{position:absolute;left:55%;top:30%;width:41%;height:41%;border-radius:50%;border:1px solid var(--line);box-sizing:border-box}
+.research-interests .interest-attention-path{left:29%;top:50%;width:38%}
+.research-interests .interest-attention-signal{left:29%;top:48%}
+.research-interests .interest-window{position:absolute;left:7%;top:15%;width:86%;height:65%;border:1px solid var(--green);border-radius:7%;box-sizing:border-box;overflow:visible}
+.research-interests .interest-window-top{position:absolute;left:0;right:0;top:23%;height:1px;background:var(--line)}
+.research-interests .interest-window-dot{position:absolute;left:9%;top:10%;height:4%;width:3%;border-radius:50%;background:var(--green);opacity:.5}
+.research-interests .interest-window-line{position:absolute;left:12%;width:25%;height:1px;background:var(--line)}
+.research-interests .interest-window-line.one{top:48%}
+.research-interests .interest-window-line.two{top:64%;width:17%}
+.research-interests .interest-feedback{position:absolute;left:51%;top:39%;width:33%;height:32%;border:1px solid var(--green);border-radius:4px;box-sizing:border-box;background:color-mix(in srgb,var(--green) 7%,var(--paper))}
+.research-interests .interest-feedback-check{position:absolute;left:56%;top:42%;width:24%;height:24%;opacity:0;background:transparent}
+.research-interests .interest-pointer{left:64%;top:69%;width:25%;height:25%;background:transparent}
+.research-interests .interest-person-top{left:0;top:7%}
+.research-interests .interest-person-bottom{left:0;top:64%}
+.research-interests .interest-monitor{left:69%;top:4%;width:31%;height:31%}
+.research-interests .interest-phone{left:74%;top:65%;width:24%;height:30%}
+.research-interests .interest-junction{left:45%;top:46%}
+.research-interests .interest-network-a{left:20%;top:21%;width:38%;transform:rotate(45deg)}
+.research-interests .interest-network-b{left:20%;top:75%;width:38%;transform:rotate(-45deg)}
+.research-interests .interest-network-c{left:48%;top:49%;width:42%;transform:rotate(-39deg)}
+.research-interests .interest-network-d{left:48%;top:49%;width:42%;transform:rotate(39deg)}
+.research-interests .interest-network-signal{left:19%;top:20%}
+.research-interests .interest-graphic.is-animating .interest-signal-top{animation:interest-merge-top 1.35s ease-out both}
+.research-interests .interest-graphic.is-animating .interest-signal-middle{animation:interest-merge-middle 1.35s .08s ease-out both}
+.research-interests .interest-graphic.is-animating .interest-signal-bottom{animation:interest-merge-bottom 1.35s .16s ease-out both}
+.research-interests .interest-graphic.is-animating .interest-merge{animation:interest-node-emphasis 1.5s ease-out both}
+.research-interests .interest-graphic.is-animating .interest-attention-signal{animation:interest-focus-path 1.5s ease-out both}
+.research-interests .interest-graphic.is-animating .interest-target-halo{animation:interest-focus 1.5s ease-out both}
+.research-interests .interest-graphic.is-animating .interest-pointer{animation:interest-pointer-approach 1.5s ease-in-out both}
+.research-interests .interest-graphic.is-animating .interest-feedback{animation:interest-feedback 1.5s ease-in-out both}
+.research-interests .interest-graphic.is-animating .interest-feedback-check{animation:interest-check 1.5s ease-in-out both}
+.research-interests .interest-graphic.is-animating .interest-network-signal{animation:interest-coordination 1.5s ease-in-out both}
+@keyframes interest-merge-top{0%{opacity:0;transform:translate(0,0)}15%{opacity:1}68%{transform:translate(.5em,.33em);opacity:1}90%,100%{transform:translate(.5em,.33em);opacity:0}}
+@keyframes interest-merge-middle{0%{opacity:0;transform:translateX(0)}15%{opacity:1}68%{transform:translateX(.5em);opacity:1}90%,100%{transform:translateX(.5em);opacity:0}}
+@keyframes interest-merge-bottom{0%{opacity:0;transform:translate(0,0)}15%{opacity:1}68%{transform:translate(.5em,-.33em);opacity:1}90%,100%{transform:translate(.5em,-.33em);opacity:0}}
+@keyframes interest-node-emphasis{0%,100%{background:transparent}65%{background:color-mix(in srgb,var(--green) 20%,transparent)}}
+@keyframes interest-focus-path{0%{opacity:0;transform:translateX(0)}10%,65%{opacity:1}65%,100%{transform:translateX(.44em)}100%{opacity:0}}
+@keyframes interest-focus{0%,100%{transform:scale(1);border-color:var(--line)}60%{transform:scale(.72);border-color:var(--green)}}
+@keyframes interest-pointer-approach{0%,100%{transform:translate(0,0)}45%,70%{transform:translate(-.08em,-.12em)}}
+@keyframes interest-feedback{0%,100%{background:color-mix(in srgb,var(--green) 7%,var(--paper))}50%,75%{background:color-mix(in srgb,var(--green) 20%,var(--paper))}}
+@keyframes interest-check{0%,30%,100%{opacity:0}50%,75%{opacity:1}}
+@keyframes interest-coordination{0%{opacity:0;transform:translate(0,0)}10%{opacity:1}42%{transform:translate(.27em,.27em)}75%,100%{transform:translate(.62em,0)}75%{opacity:1}100%{opacity:0}}
+@media(max-width:1000px){
+  .research-interests{--interest-graphic-size:72px}
+  .research-interests .research-interest{gap:20px}
+}
+@media(max-width:700px){
+  .research-interests{--interest-graphic-size:64px}
+  .research-interests .research-interest{grid-template-columns:64px minmax(0,1fr);gap:14px 18px;padding:24px 0}
+  .research-interests .interest-graphic{grid-column:1;grid-row:1}
+  .research-interest-copy{display:contents}
+  .research-interest-copy h4{grid-column:2;grid-row:1;align-self:center;margin:0}
+  .research-interest-copy p{grid-column:1/-1;grid-row:2;max-width:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .research-interests .interest-graphic.is-animating *{animation:none!important}
+}
+@media print{
+  .research-interests .interest-graphic *{animation:none!important}
+}

@@ -19,6 +19,9 @@ GitHub Pages documentation: https://docs.github.com/en/pages/getting-started-wit
 
 - `index.html`: Research homepage with the perception–action illustration, four research interests, and the existing research approach.
 - `publications.html`: independent Publications page, paper filters, and five patent records. Edit patent titles, inventors, numbers, and historical grant/publication dates directly here.
+- `research.css`: the four approved composite line illustrations and their responsive placement beside research interests.
+- `research.js`: brief hover, focus, and click animations; respects reduced motion and stops when the page is hidden.
+- `LICENSE-LUCIDE.txt`: attribution and license notices for the small Lucide pictograms used in the compositions.
 - `pages.css`: Research interests, Publications page framing, patent list, and the shared compact footer.
 - `site.js`: footer year and redirects from former homepage section links to the independent pages.
 - `about.html`: personal introduction, interests, education, and opportunities; edit the English text directly here.
@@ -49,3 +52,5 @@ Experience uses concise English translations of the approved CV entries. Project
 The four main navigation destinations are Research (index.html), Publications (publications.html), Experience (experience.html), and About Me (about.html). Each page has its own URL and active navigation state. Legacy homepage links #publications, #experience, #about, and #contact lead to the appropriate page; #research still scrolls to the Research section.
 
 Patent entries use the grant or application-publication year, not the filing year. “Granted” describes the historical grant event and does not assert current legal status. Four grants were checked against the author's CNIPA certificates. The scooter entry uses the grant publication CN110979535B rather than the earlier A publication. The faucet entry credits both designers shown on the certificate. CN118963574A is listed as a published application. Links are supplied for the three retrievable public records; certificate-only records retain their verified numbers without a speculative external link. Certificate scans are not included in the public site. English patent titles are translations of the Chinese titles.
+
+Research interests use the approved composite illustrations: multimodal cue convergence, attention focusing on a target, adaptive interface feedback, and coordination across people and devices. The illustrations are embedded locally with no icon-library or network dependency. Desktop uses small graphics beside the text; on phones the graphic sits next to the title and the description spans the full row. They remain still until hovered, focused, or activated and play once. Reduced-motion visitors receive static illustrations.
